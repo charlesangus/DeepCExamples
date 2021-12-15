@@ -6,7 +6,7 @@ Welcome to the Examples Repository for DeepC, a suite of Deep compositing plugin
 To get DeepC visit: https://github.com/charlesangus/DeepC 
 
 ## DeepRenders
-Various (still!) Scenes with Deep Renderings to test and checkout the.
+Various Scenes with Deep Renderings to test and checkout the deep(c) plugins.
 
 All scenes included an alembic camera, a beauty render and the deep rendering.
 
