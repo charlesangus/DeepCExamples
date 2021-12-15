@@ -1,4 +1,4 @@
-# DeepC Example
+# DeepC Examples
 
 ![DeepCAnglerfish](https://raw.githubusercontent.com/charlesangus/DeepC/master/icons/anglerfish_icon_medium_black.png)
 
