@@ -5,6 +5,8 @@
 Welcome to the Examples Repository for DeepC, a suite of Deep compositing plugins for Foundry's Nuke. <br>
 To get DeepC visit: https://github.com/charlesangus/DeepC 
 
+Note: this reposititory is pretty big because of the big dcm files.
+
 ## DeepRenders
 Various Scenes with Deep Renderings to test and checkout the deep(c) plugins.
 
