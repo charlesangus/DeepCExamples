@@ -1,0 +1,299 @@
+#! /mnt/data/Apps/nuke/Nuke13.1v1/libnuke-13.1.1.so -nx
+version 13.1 v1
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="0" w="2560" h="1376" maximized="1" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1606" stretch="1"/>
+            <splitter orientation="2">
+                <split size="683"/>
+                <dock id="" activePageId="uk.co.thefoundry.scripteditor.1">
+                    <page id="Viewer.1"/>
+                    <page id="uk.co.thefoundry.scripteditor.1"/>
+                </dock>
+                <split size="650"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                    <page id="DAG.2"/>
+                </dock>
+            </splitter>
+            <split size="906"/>
+            <splitter orientation="2">
+                <split size="1337"/>
+                <dock id="" activePageId="Properties.1">
+                    <page id="Properties.1"/>
+                </dock>
+            </splitter>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name /home/falk/dev/projects/DeepCExamples/nukeScripts/15_deepc-world.nk
+ project_directory "\[python \{nuke.script_directory()\}]"
+ frame 9
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ monitorOutLUT rec709
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene02/deepVolume.v001.rndr_objs.0001.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read8
+ xpos -9336
+ ypos -1691
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene01/deep.v001.rndr_objs.0001.exr
+ format "1280 720 0 0 1280 720 1 HD_720"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read15
+ xpos -10032
+ ypos -1693
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_ground.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read9
+ xpos -8521
+ ypos -1694
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_trunk.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read10
+ xpos -8395
+ ypos -1694
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_lightsstring.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read13
+ xpos -7998
+ ypos -1694
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_star.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read14
+ xpos -7859
+ ypos -1694
+ postage_stamp false
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene02/deepVolume.v001.dcm.rndr_objs.0001.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name DeepRead2
+ xpos -9151
+ ypos -1690
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_leaves.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read11
+ xpos -8262
+ ypos -1694
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_balls.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read12
+ xpos -8129
+ ypos -1694
+ postage_stamp false
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_star.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name DeepRead8
+ xpos -6883
+ ypos -1694
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_leaves.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name DeepRead6
+ xpos -7343
+ ypos -1694
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_balls.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name DeepRead4
+ xpos -7183
+ ypos -1694
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_lightsstring.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name DeepRead7
+ xpos -7036
+ ypos -1694
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_trunk.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name DeepRead10
+ xpos -7477
+ ypos -1694
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_ground.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name DeepRead5
+ xpos -7617
+ ypos -1690
+}
+DeepMerge2 {
+ inputs 6
+ name DeepMerge1
+ xpos -7287
+ ypos -1515
+}
+Camera3 {
+ inputs 0
+ translate {0.06393680449 0.9162715754 11.4731846}
+ rotate {-5.94989274 1.158664589 -8.698948053e-08}
+ haperture 41.42139816
+ vaperture 23.29953766
+ near 0.02183550224
+ far 3467.78418
+ focal_point 5
+ fstop 5.599999905
+ name Camera3
+ xpos -9277
+ ypos -1894
+}
+Camera3 {
+ inputs 0
+ translate {0.06393680449 0.9162715754 11.4731846}
+ rotate {-5.94989274 1.158664589 -8.698948053e-08}
+ haperture 41.42139816
+ vaperture 23.29953766
+ near 0.02183550224
+ far 3467.78418
+ focal_point 5
+ fstop 5.599999905
+ name Camera2
+ xpos -10016
+ ypos -1616
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene01/deep.v001.rndr_objs.dcm.0001.exr
+ format "1280 720 0 0 1280 720 1 HD_720"
+ origset true
+ name DeepRead1
+ xpos -9869
+ ypos -1693
+}
+add_layer {P P.red P.green P.blue P.x P.y P.z}
+DeepCWorld {
+ inputs 2
+ output_channelset {P.red P.green P.blue -P.x}
+ name DeepCWorld1
+ xpos -9869
+ ypos -1524
+}
+set Nd8f80f00 [stack 0]
+DeepCShuffle {
+ in0 P.red
+ in1 P.green
+ in2 P.blue
+ name DeepCShuffle1
+ xpos -9701
+ ypos -1494
+}
+Camera3 {
+ inputs 0
+ translate {-0.21313 0.879126 29.68}
+ rotate {8.776130008 0.3512587987 -1.319362552e-06}
+ haperture 41.42139816
+ vaperture 23.29953766
+ near 0.001000000047
+ focal_point 5
+ fstop 5.599999905
+ name Camera1
+ xpos -8458
+ ypos -1894
+}
+push $Nd8f80f00
+DeepSample {
+ pos {272 413}
+ channels {P.red P.green P.blue none}
+ name DeepSample1
+ xpos -9869
+ ypos -1444
+}

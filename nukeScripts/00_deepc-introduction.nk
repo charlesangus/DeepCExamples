@@ -1,0 +1,707 @@
+#! /mnt/data/Apps/nuke/Nuke13.1v1/libnuke-13.1.1.so -nx
+version 13.1 v1
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="0" w="2560" h="1376" maximized="1" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1606" stretch="1"/>
+            <splitter orientation="2">
+                <split size="683"/>
+                <dock id="" activePageId="uk.co.thefoundry.scripteditor.1">
+                    <page id="Viewer.1"/>
+                    <page id="uk.co.thefoundry.scripteditor.1"/>
+                </dock>
+                <split size="650"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                    <page id="DAG.2"/>
+                </dock>
+            </splitter>
+            <split size="906"/>
+            <splitter orientation="2">
+                <split size="1337"/>
+                <dock id="" activePageId="Properties.1">
+                    <page id="Properties.1"/>
+                </dock>
+            </splitter>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name /home/falk/dev/projects/DeepCExamples/nukeScripts/00_deepc-introduction.nk
+ project_directory "\[python \{nuke.script_directory()\}]"
+ format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ monitorOutLUT rec709
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode1
+ tile_color 0x151515ff
+ label DeepCSaturation
+ note_font_size 55
+ xpos -12177
+ ypos -933
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode11
+ tile_color 0x151515ff
+ label DeepCHueShift
+ note_font_size 55
+ xpos -15080
+ ypos -944
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode2
+ tile_color 0x151515ff
+ label DeepCKeymix
+ note_font_size 55
+ xpos -17909
+ ypos 66
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode29
+ tile_color 0x151515ff
+ label DeepCMatrix
+ note_font_size 55
+ xpos -13919
+ ypos -937
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode30
+ tile_color 0x151515ff
+ label DeepCPMatte
+ note_font_size 55
+ xpos -16789
+ ypos -1978
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode31
+ tile_color 0x151515ff
+ label DeepCPNoise
+ note_font_size 55
+ xpos -16235
+ ypos -1977
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode32
+ tile_color 0x151515ff
+ label DeepCID
+ note_font_size 55
+ xpos -17360
+ ypos -1980
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode33
+ tile_color 0x151515ff
+ label DeepCConstant
+ note_font_size 55
+ xpos -17918
+ ypos -1990
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode34
+ tile_color 0x151515ff
+ label DeepCAddChannels
+ note_font_size 55
+ xpos -17905
+ ypos -1470
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode35
+ tile_color 0x151515ff
+ label DeepCRemove
+ note_font_size 55
+ xpos -17346
+ ypos -1466
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode36
+ tile_color 0x151515ff
+ label DeepCPShuffle
+ note_font_size 55
+ xpos -16782
+ ypos -1463
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode37
+ tile_color 0x151515ff
+ label DeepCAdd
+ note_font_size 55
+ xpos -17903
+ ypos -960
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode38
+ tile_color 0x151515ff
+ label DeepCClamp
+ note_font_size 55
+ xpos -17345
+ ypos -949
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode39
+ tile_color 0x151515ff
+ label DeepCColorLookup
+ note_font_size 55
+ xpos -16785
+ ypos -947
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode40
+ tile_color 0x151515ff
+ label DeepCGamma
+ note_font_size 55
+ xpos -16222
+ ypos -941
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode41
+ tile_color 0x151515ff
+ label DeepCGrade
+ note_font_size 55
+ xpos -15658
+ ypos -946
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode42
+ tile_color 0x151515ff
+ label DeepCInvert
+ note_font_size 55
+ xpos -14502
+ ypos -936
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode43
+ tile_color 0x151515ff
+ label DeepCMulitply
+ note_font_size 55
+ xpos -13333
+ ypos -932
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode44
+ tile_color 0x151515ff
+ label DeepCPosterize
+ note_font_size 55
+ xpos -12755
+ ypos -930
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode45
+ tile_color 0x151515ff
+ label DeepCWorld
+ note_font_size 55
+ xpos -17910
+ ypos -446
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode46
+ tile_color 0x151515ff
+ label DeepCAdjustBBox
+ note_font_size 55
+ xpos -17909
+ ypos 589
+ bdwidth 404
+ bdheight 362
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode47
+ tile_color 0x151515ff
+ label DeepCCopyBBox
+ note_font_size 55
+ xpos -17372
+ ypos 590
+ bdwidth 404
+ bdheight 362
+}
+DeepCAddChannels {
+ inputs 0
+ name DeepCAddChannels2
+ xpos -17782
+ ypos -1307
+}
+DeepCRemoveChannels {
+ inputs 0
+ name DeepCRemoveChannels2
+ xpos -17261
+ ypos -1295
+}
+DeepCShuffle {
+ inputs 0
+ name DeepCShuffle2
+ xpos -16654
+ ypos -1298
+}
+DeepCAdd {
+ inputs 0
+ name DeepCAdd3
+ xpos -17779
+ ypos -767
+}
+DeepCClamp {
+ inputs 0
+ side_mask rgba.alpha
+ name DeepCClamp3
+ xpos -17207
+ ypos -773
+}
+DeepCColorLookup {
+ inputs 0
+ side_mask rgba.alpha
+ name DeepCColorLookup3
+ xpos -16627
+ ypos -765
+}
+DeepCGamma {
+ inputs 0
+ side_mask rgba.alpha
+ name DeepCGamma3
+ xpos -16077
+ ypos -765
+}
+DeepCGrade {
+ inputs 0
+ side_mask rgba.alpha
+ name DeepCGrade2
+ xpos -15528
+ ypos -775
+}
+DeepCInvert {
+ inputs 0
+ side_mask rgba.alpha
+ name DeepCInvert3
+ xpos -14362
+ ypos -742
+}
+DeepCMultiply {
+ inputs 0
+ side_mask rgba.alpha
+ name DeepCMultiply4
+ xpos -13201
+ ypos -773
+}
+DeepCMatrix {
+ inputs 0
+ name DeepCMatrix3
+ xpos -13781
+ ypos -773
+}
+DeepCInvert {
+ inputs 0
+ side_mask rgba.alpha
+ name DeepCInvert2
+ xpos -14940
+ ypos -750
+}
+DeepCSaturation {
+ inputs 0
+ side_mask rgba.alpha
+ name DeepCSaturation1
+ xpos -12036
+ ypos -784
+}
+DeepCPosterize {
+ inputs 0
+ name DeepCPosterize2
+ xpos -12614
+ ypos -781
+}
+DeepCKeymix {
+ inputs 0
+ name DeepCKeymix1
+ xpos -17764
+ ypos 257
+}
+DeepCAdjustBBox {
+ inputs 0
+ name DeepCAdjustBBox3
+ xpos -17722
+ ypos 753
+}
+DeepCID {
+ inputs 0
+ name DeepCID2
+ xpos -17189
+ ypos -1793
+}
+DeepCConstant {
+ inputs 0
+ name DeepCConstant3
+ xpos -17744
+ ypos -1821
+}
+DeepCWorld {
+ inputs 0
+ name DeepCWorld6
+ xpos -17813
+ ypos -261
+}
+DeepCPMatte {
+ inputs 0
+ name DeepCPMatte3
+ xpos -16670
+ ypos -1772
+}
+DeepCPNoise {
+ inputs 0
+ uniform_scale 0.2
+ name DeepCPNoise4
+ xpos -16056
+ ypos -1775
+}
+DeepCCopyBBox {
+ inputs 0
+ name DeepCCopyBBox3
+ xpos -17202
+ ypos 763
+}
+StickyNote {
+ inputs 0
+ name StickyNote6
+ tile_color 0x61243ff
+ label " Util "
+ note_font_size 250
+ xpos -18635
+ ypos 713
+}
+StickyNote {
+ inputs 0
+ name StickyNote4
+ tile_color 0x61243ff
+ label " World "
+ note_font_size 250
+ xpos -18865
+ ypos -325
+}
+StickyNote {
+ inputs 0
+ name StickyNote5
+ tile_color 0x61243ff
+ label " Merge "
+ note_font_size 250
+ xpos -18917
+ ypos 198
+}
+StickyNote {
+ inputs 0
+ name StickyNote3
+ tile_color 0x61243ff
+ label " Color "
+ note_font_size 250
+ xpos -18833
+ ypos -847
+}
+StickyNote {
+ inputs 0
+ name StickyNote2
+ tile_color 0x61243ff
+ label " Channels "
+ note_font_size 250
+ xpos -19213
+ ypos -1344
+}
+StickyNote {
+ inputs 0
+ name StickyNote1
+ tile_color 0x61243ff
+ label " Draw "
+ note_font_size 250
+ xpos -18866
+ ypos -1852
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_star.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead8
+ xpos -16573
+ ypos 1905
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_lightsstring.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name DeepRead7
+ xpos -16726
+ ypos 1905
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_balls.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead4
+ xpos -16873
+ ypos 1905
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_leaves.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead6
+ xpos -17033
+ ypos 1905
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_trunk.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead10
+ xpos -17167
+ ypos 1905
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_ground.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name DeepRead5
+ xpos -17306
+ ypos 1905
+}
+DeepMerge2 {
+ inputs 6
+ drop_hidden true
+ name DeepMerge3
+ xpos -16914
+ ypos 2158
+}
+Camera3 {
+ inputs 0
+ translate {-0.21313 0.879126 29.68}
+ rotate {8.776130008 0.3512587987 -1.319362552e-06}
+ haperture 41.42139816
+ vaperture 23.29953766
+ near 0.001000000047
+ focal_point 5
+ fstop 5.599999905
+ name Camera1
+ xpos -18318
+ ypos 1736
+}
+Camera3 {
+ inputs 0
+ translate {0.06393680449 0.9162715754 11.4731846}
+ rotate {-5.94989274 1.158664589 -8.698948053e-08}
+ haperture 41.42139816
+ vaperture 23.29953766
+ near 0.02183550224
+ far 3467.78418
+ focal_point 5
+ fstop 5.599999905
+ name Camera3
+ xpos -19125
+ ypos 1753
+}
+Camera3 {
+ inputs 0
+ translate {0.06393680449 0.9162715754 11.4731846}
+ rotate {-5.94989274 1.158664589 -8.698948053e-08}
+ haperture 41.42139816
+ vaperture 23.29953766
+ near 0.02183550224
+ far 3467.78418
+ focal_point 5
+ fstop 5.599999905
+ name Camera2
+ xpos -19853
+ ypos 1757
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene02/deepVolume.v001.rndr_objs.0001.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read8
+ xpos -19154
+ ypos 1908
+ postage_stamp false
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene02/deepVolume.v001.dcm.rndr_objs.0001.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead2
+ xpos -18969
+ ypos 1909
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_leaves.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read3
+ xpos -18080
+ ypos 1905
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_balls.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read1
+ xpos -17947
+ ypos 1905
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_lightsstring.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read4
+ xpos -17816
+ ypos 1905
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_star.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read5
+ xpos -17677
+ ypos 1905
+ postage_stamp false
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene01/deep.v001.rndr_objs.dcm.0001.exr
+ format "1280 720 0 0 1280 720 1 HD_720"
+ name DeepRead1
+ xpos -19683
+ ypos 1926
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene01/deep.v001.rndr_objs.0001.exr
+ format "1280 720 0 0 1280 720 1 HD_720"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read6
+ xpos -19850
+ ypos 1926
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_ground.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read2
+ xpos -18339
+ ypos 1905
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_trunk.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read7
+ xpos -18211
+ ypos 1905
+ postage_stamp false
+}

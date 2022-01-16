@@ -1,0 +1,456 @@
+#! /mnt/data/Apps/nuke/Nuke13.1v1/libnuke-13.1.1.so -nx
+version 13.1 v1
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="0" w="2560" h="1376" maximized="1" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1606" stretch="1"/>
+            <splitter orientation="2">
+                <split size="898"/>
+                <dock id="" activePageId="Viewer.1">
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="435"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                    <page id="DAG.2"/>
+                </dock>
+            </splitter>
+            <split size="906"/>
+            <splitter orientation="2">
+                <split size="1337"/>
+                <dock id="" activePageId="Properties.1">
+                    <page id="Properties.1"/>
+                </dock>
+            </splitter>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name /home/falk/dev/projects/DeepCExamples/nukeScripts/18_deepc-keymix.nk
+ project_directory "\[python \{nuke.script_directory()\}]"
+ format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ monitorOutLUT rec709
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+Camera3 {
+ inputs 0
+ translate {0.06393680449 0.9162715754 11.4731846}
+ rotate {-5.94989274 1.158664589 -8.698948053e-08}
+ haperture 41.42139816
+ vaperture 23.29953766
+ near 0.02183550224
+ far 3467.78418
+ focal_point 5
+ fstop 5.599999905
+ name Camera3
+ xpos -19125
+ ypos 1753
+}
+Camera3 {
+ inputs 0
+ translate {0.06393680449 0.9162715754 11.4731846}
+ rotate {-5.94989274 1.158664589 -8.698948053e-08}
+ haperture 41.42139816
+ vaperture 23.29953766
+ near 0.02183550224
+ far 3467.78418
+ focal_point 5
+ fstop 5.599999905
+ name Camera2
+ xpos -19853
+ ypos 1757
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_ground.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read2
+ xpos -18339
+ ypos 1905
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_trunk.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read7
+ xpos -18209
+ ypos 1905
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_leaves.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read3
+ xpos -18080
+ ypos 1905
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_balls.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read1
+ xpos -17947
+ ypos 1905
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_lightsstring.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read4
+ xpos -17816
+ ypos 1905
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_star.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ in_colorspace scene_linear
+ out_colorspace scene_linear
+ name Read5
+ xpos -17677
+ ypos 1905
+ postage_stamp false
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_star.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead8
+ xpos -16573
+ ypos 1905
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_lightsstring.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name DeepRead7
+ xpos -16726
+ ypos 1905
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_balls.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead4
+ xpos -16873
+ ypos 1905
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_leaves.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead6
+ xpos -17033
+ ypos 1905
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_trunk.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead10
+ xpos -17167
+ ypos 1905
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_ground.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name DeepRead5
+ xpos -17306
+ ypos 1905
+}
+DeepMerge2 {
+ inputs 6
+ drop_hidden true
+ name DeepMerge3
+ xpos -16918
+ ypos 2104
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene02/deepVolume.v001.rndr_objs.0001.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read8
+ xpos -19154
+ ypos 1908
+ postage_stamp false
+}
+Roto {
+ inputs 0
+ output alpha
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097152}
+    {t x44800000 x44428000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {curvegroup Bezier1 512 bezier
+     {{cc
+       {f 8192}
+       {px 1
+        {x43054e9f x4367fb93}
+        {x4473f337 x44953334}
+        {xc3054e9c xc367fb95}
+        {xc31f10bd x433c57d5}
+        {x4469f337 xc36e6664}
+        {x431f10c4 xc33c57d5}
+        {x40c00000 xc3560000}
+        {x4501a000 xc34c0000}
+        {xc0c00000 x43560000}
+        {0 0}
+        {x45038000 x44c40000}
+        {0 0}}}
+      {cc
+       {f 8192}
+       {px 1
+        {x43054e9f x4367fb93}
+        {xc3d6b35c x4376bdb0}
+        {xc3054e9c xc367fba0}
+        {xc31f10bd x433c57d5}
+        {xc3bd2dc2 xc39fc660}
+        {x431f10bd xc33c57d5}
+        {x40c00000 xc3560000}
+        {0 0}
+        {xc0c00000 x43560000}
+        {0 0}
+        {0 0}
+        {0 0}}}}
+     {tx 1 x44c11000 x43fc8000}
+     {a osw x41200000 osf 0 str 1 spx x44800000 spy x44428000 sb 1 tt x40800000}}}}}}
+ toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+ toolbar_brush_hardness 0.200000003
+ toolbar_source_transform_scale {1 1}
+ toolbar_source_transform_center {1024 778}
+ colorOverlay {0 0 0 0}
+ lifetime_type "all frames"
+ motionblur_shutter_offset_type centred
+ source_black_outside true
+ name Roto1
+ xpos -19080
+ ypos 2054
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene02/deepVolume.v001.dcm.rndr_objs.0001.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead2
+ xpos -18969
+ ypos 1909
+}
+set Nb278b200 [stack 0]
+DeepCMultiply {
+ value {1 0.8238661289 0.5730506182}
+ name DeepCMultiply1
+ xpos -18737
+ ypos 2006
+}
+push $Nb278b200
+DeepCKeymix {
+ inputs 3
+ name DeepCKeymix1
+ xpos -18969
+ ypos 2133
+}
+Keymix {
+ inputs 0
+ name Keymix1
+ xpos -19311
+ ypos 2132
+}
+Roto {
+ inputs 0
+ output alpha
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097152}
+    {t x44800000 x44428000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {curvegroup Bezier1 512 bezier
+     {{cc
+       {f 8192}
+       {px 1
+        {x415f2340 x424233e0}
+        {xc38bafca x4478cd29}
+        {xc15f2280 xc2423400}
+        {xc02cc400 x41f51f50}
+        {xc3ad562e xc3860465}
+        {x402cc300 xc1f51f50}
+        {xc109c580 xc1efd080}
+        {xc3290054 xc380cc13}
+        {x4109c600 x41efd050}
+        {x408be780 xc2468080}
+        {x3f183c00 x446b3abb}
+        {xc08be700 x42468060}}}
+      {cc
+       {f 8192}
+       {px 1
+        {x415f2340 x424233c0}
+        {xc3abb434 x42c54600}
+        {xc15f2300 xc2423400}
+        {xc02cc180 x41f51f50}
+        {xc3b1f4ff xc1fade80}
+        {x402cc300 xc1f51f50}
+        {xc109c580 xc1efd080}
+        {x43abb428 xc2c5460c}
+        {x4109c600 x41efd050}
+        {x408be800 xc2468080}
+        {x43b1f4f8 x41fade80}
+        {xc08be700 x42468060}}}}
+     {tx 1 x44330000 x43924000}
+     {a osw x41200000 osf 0 str 1 spx x44800000 spy x44428000 sb 1 tt x40800000}}}}}}
+ toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+ toolbar_brush_hardness 0.200000003
+ toolbar_source_transform_scale {1 1}
+ toolbar_source_transform_center {1024 778}
+ colorOverlay {0 0 0 0}
+ lifetime_type "all frames"
+ motionblur_shutter_offset_type centred
+ source_black_outside true
+ name Roto2
+ xpos -19897
+ ypos 2043
+}
+set N93b48100 [stack 0]
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene01/deep.v001.rndr_objs.dcm.0001.exr
+ format "1280 720 0 0 1280 720 1 HD_720"
+ name DeepRead1
+ xpos -19683
+ ypos 1926
+}
+set Ndd5b8f00 [stack 0]
+DeepTransform {
+ translate {200 200 0}
+ name DeepTransform1
+ xpos -19575
+ ypos 2058
+}
+push $Ndd5b8f00
+DeepCKeymix {
+ inputs 3
+ name DeepCKeymix2
+ xpos -19683
+ ypos 2118
+}
+push $N93b48100
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene01/deep.v001.rndr_objs.0001.exr
+ format "1280 720 0 0 1280 720 1 HD_720"
+ origset true
+ name Read6
+ xpos -20033
+ ypos 1902
+ postage_stamp false
+}
+set Ndd5b9d00 [stack 0]
+Transform {
+ translate {200 200}
+ center {1024 778}
+ name Transform1
+ xpos -20148
+ ypos 2016
+}
+push $Ndd5b9d00
+Keymix {
+ inputs 3
+ name Keymix2
+ xpos -20053
+ ypos 2128
+}
+Viewer {
+ inputs 2
+ frame_range 1-100
+ input_number 1
+ colour_sample_bbox {0.8421875238 -0.6359375119 0.84375 -0.6343749762}
+ name Viewer1
+ xpos -17339
+ ypos 2172
+}

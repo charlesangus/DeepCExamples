@@ -1,0 +1,107 @@
+#! /mnt/data/Apps/nuke/Nuke13.1v1/libnuke-13.1.1.so -nx
+version 13.1 v1
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="0" w="2560" h="1376" maximized="1" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1606" stretch="1"/>
+            <splitter orientation="2">
+                <split size="683"/>
+                <dock id="" activePageId="uk.co.thefoundry.scripteditor.1">
+                    <page id="Viewer.1"/>
+                    <page id="uk.co.thefoundry.scripteditor.1"/>
+                </dock>
+                <split size="650"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                    <page id="DAG.2"/>
+                </dock>
+            </splitter>
+            <split size="906"/>
+            <splitter orientation="2">
+                <split size="1337"/>
+                <dock id="" activePageId="Properties.1">
+                    <page id="Properties.1"/>
+                </dock>
+            </splitter>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name /home/falk/dev/projects/DeepCExamples/nukeScripts/10_deepc-constant.nk
+ project_directory "\[python \{nuke.script_directory()\}]"
+ frame 9
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ monitorOutLUT rec709
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+Camera3 {
+ inputs 0
+ name Camera1
+ xpos -10614
+ ypos -1441
+}
+DeepCConstant {
+ inputs 0
+ color_front {1 0 0 0.5}
+ color_back {0 1 0 0.5}
+ samples 10
+ name DeepCConstant1
+ xpos -10460
+ ypos -1409
+}
+set Na4689d00 [stack 0]
+DeepToPoints {
+ inputs 2
+ name DeepToPoints1
+ xpos -10624
+ ypos -1289
+}
+push $Na4689d00
+DeepCrop {
+ znear 0
+ use_zfar false
+ bbox {384 216 1536 864}
+ use_bbox false
+ name DeepCrop1
+ xpos -10460
+ ypos -1233
+}
+DeepSample {
+ name DeepSample1
+ xpos -10624
+ ypos -1233
+}
+Constant {
+ inputs 0
+ channels rgb
+ color 0.5
+ name Constant1
+ xpos -10181
+ ypos -1396
+ postage_stamp false
+}
+DeepFromFrames {
+ samples 10
+ zmin 0
+ zmax 10
+ name DeepFromFrames1
+ xpos -10181
+ ypos -1349
+}

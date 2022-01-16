@@ -1,0 +1,293 @@
+#! /mnt/data/Apps/nuke/Nuke13.1v1/libnuke-13.1.1.so -nx
+version 13.1 v1
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="0" w="2560" h="1376" maximized="1" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1606" stretch="1"/>
+            <splitter orientation="2">
+                <split size="683"/>
+                <dock id="" activePageId="uk.co.thefoundry.scripteditor.1">
+                    <page id="uk.co.thefoundry.scripteditor.1"/>
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="650"/>
+                <dock id="" activePageId="DAG.1">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                    <page id="DAG.2"/>
+                </dock>
+            </splitter>
+            <split size="906"/>
+            <splitter orientation="2">
+                <split size="1337"/>
+                <dock id="" activePageId="Properties.1">
+                    <page id="Properties.1"/>
+                </dock>
+            </splitter>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name /home/falk/dev/projects/DeepCExamples/nukeScripts/04_deepc-clamp.nk
+ project_directory "\[python \{nuke.script_directory()\}]"
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ monitorOutLUT rec709
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_star.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead8
+ xpos -8350
+ ypos -1702
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_lightsstring.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name DeepRead7
+ xpos -8503
+ ypos -1702
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_ground.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name DeepRead5
+ xpos -9083
+ ypos -1702
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_trunk.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead10
+ xpos -8944
+ ypos -1702
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_balls.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead4
+ xpos -8650
+ ypos -1702
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene03/christmasTree.v001.rndr_leaves.dcm.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead6
+ xpos -8810
+ ypos -1702
+}
+Camera3 {
+ inputs 0
+ translate {-0.21313 0.879126 29.68}
+ rotate {8.776130008 0.3512587987 -1.319362552e-06}
+ haperture 41.42139816
+ vaperture 23.29953766
+ near 0.001000000047
+ focal_point 5
+ fstop 5.599999905
+ name Camera1
+ xpos -9967
+ ypos -1871
+}
+Camera3 {
+ inputs 0
+ translate {0.06393680449 0.9162715754 11.4731846}
+ rotate {-5.94989274 1.158664589 -8.698948053e-08}
+ haperture 41.42139816
+ vaperture 23.29953766
+ near 0.02183550224
+ far 3467.78418
+ focal_point 5
+ fstop 5.599999905
+ name Camera3
+ xpos -10774
+ ypos -1854
+}
+Camera3 {
+ inputs 0
+ translate {0.06393680449 0.9162715754 11.4731846}
+ rotate {-5.94989274 1.158664589 -8.698948053e-08}
+ haperture 41.42139816
+ vaperture 23.29953766
+ near 0.02183550224
+ far 3467.78418
+ focal_point 5
+ fstop 5.599999905
+ name Camera2
+ xpos -11502
+ ypos -1850
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene02/deepVolume.v001.dcm.rndr_objs.0001.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ name DeepRead2
+ xpos -10618
+ ypos -1698
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_trunk.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read10
+ xpos -9862
+ ypos -1702
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_leaves.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read11
+ xpos -9729
+ ypos -1702
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_balls.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read12
+ xpos -9596
+ ypos -1702
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_lightsstring.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read13
+ xpos -9465
+ ypos -1702
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_star.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read14
+ xpos -9326
+ ypos -1702
+ postage_stamp false
+}
+StickyNote {
+ inputs 0
+ name StickyNote1
+ tile_color 0xd194fff
+ label "  DeepC - invert"
+ note_font_size 60
+ xpos -9474
+ ypos -2014
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene02/deepVolume.v001.rndr_objs.0001.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read8
+ xpos -10803
+ ypos -1699
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene03/christmasTree.v001.rndr_ground.0022.exr
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read9
+ xpos -9988
+ ypos -1702
+ postage_stamp false
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../deepRenders/scene01/deep.v001.rndr_objs.0001.exr
+ format "1280 720 0 0 1280 720 1 HD_720"
+ origset true
+ name Read15
+ xpos -11499
+ ypos -1701
+ postage_stamp false
+}
+Multiply {
+ channels rgb
+ value {{parent.DeepCMultiply1.value}}
+ name Multiply1
+ xpos -11499
+ ypos -1663
+}
+Clamp {
+ minimum {{parent.DeepCClamp1.minimum}}
+ minimum_enable {{parent.DeepCClamp1.minimum_enable}}
+ maximum {{parent.DeepCClamp1.maximum}}
+ maximum_enable {{parent.DeepCClamp1.maximum_enable}}
+ MinClampTo {{parent.DeepCClamp1.MinClampTo}}
+ MinClampTo_enable {{parent.DeepCClamp1.MinClampTo_enable}}
+ MaxClampTo {{parent.DeepCClamp1.MaxClampTo}}
+ MaxClampTo_enable {{parent.DeepCClamp1.MaxClampTo_enable}}
+ unpremult rgba.alpha
+ name Clamp1
+ xpos -11499
+ ypos -1535
+}
+DeepRead {
+ inputs 0
+ file ../deepRenders/scene01/deep.v001.rndr_objs.dcm.0001.exr
+ format "1280 720 0 0 1280 720 1 HD_720"
+ name DeepRead1
+ xpos -11337
+ ypos -1702
+}
+DeepCMultiply {
+ value 3.06
+ name DeepCMultiply1
+ xpos -11337
+ ypos -1664
+}
+DeepCClamp {
+ minimum 0.144
+ maximum 0.535
+ MinClampTo_enable true
+ MaxClampTo 0.925
+ MaxClampTo_enable true
+ name DeepCClamp1
+ xpos -11337
+ ypos -1524
+}
